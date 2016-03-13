@@ -1,0 +1,3 @@
+#!/bin/bash
+cd /home/pi/src/webserver
+sudo node server.js &
