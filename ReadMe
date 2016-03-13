@@ -7,3 +7,5 @@ Raspberry Pi (one, zero, 2, 3) for hosting the website.
 arduino (nano) connects to the usb port on the raspberry Pi.
 
 a wifi dongle with setup to make the Pi an Access Point is required
+
+Arduino multiple IR receivers is possible due to https://github.com/etix/Arduino-IRremote
