@@ -1,0 +1,9 @@
+This is v2 of the lap timer written a while ago.
+with EasyRaceLapTimer and OpenLap adopting a common protocol this now supports the same protocol and allows to add more.
+
+Arduino is used to handle the interrupts and time the laps.
+Raspberry Pi (one, zero, 2, 3) for hosting the website.
+
+arduino (nano) connects to the usb port on the raspberry Pi.
+
+a wifi dongle with setup to make the Pi an Access Point is required
