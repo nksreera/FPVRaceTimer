@@ -84,8 +84,8 @@
         <th colspan="20">Times</th>
       </tr>
       <tr ng-repeat="racer in data">
-        <td>{{racer.Name}}</td>
-        <td>{{users[racer.Id].details}}</td>
+        <td>{{users[racer.Id].pilotName}}</td>
+        <td>{{users[racer.Id].pilotDetails}}</td>
         <td class="success">{{format_time(racer.best)}}</td>
         <td>{{racer.laps}}</td>
         <td ng-repeat="d in racer.val" ng-class="{success : d.lapTime == racer.best}"><span>{{format_time(d.lapTime)}}</span></td>

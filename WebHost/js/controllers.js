@@ -19,7 +19,13 @@ webApp.controller('mainCtrl', function ($scope,$http) {
 $scope.data = [];
 $scope.Data2 = [];
 
+$scope.speakCheckBox = false;
 
+$scope.speakToggle = function()
+{
+  //$scope.speakCheckBox = !$scope.speakCheckBox;
+  console.log('toggled' + $scope.speakCheckBox);
+}
 
 $scope.RaceData = [];
 
@@ -79,23 +85,27 @@ $scope.createNewRace = function()
 
         socket.on('speak', function(data) {
           console.log(' will speak ');
-          if(data.message)
+          /*if(data.message)
           {
             $scope.speakNow(data.message);
           }
           else
           {
             $scope.speakNow(data.user + ' ' + $scope.format_time(data.value) + ' seconds.' );
-          }
+          }*/
+          $scope.speakNow(data);
           console.log(data);
         });
 
     socket.emit('fetch', 'data');
 
     $scope.speakNow = function(text) {
+      if($scope.speakCheckBox)
+      {
         var msg = new SpeechSynthesisUtterance();
         msg.text = text;
         window.speechSynthesis.speak(msg);
+      }
     };
 
     $scope.updateData = function()

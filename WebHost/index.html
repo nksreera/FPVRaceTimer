@@ -82,7 +82,11 @@ function speak(text) {
         <th>Lap Time Info</th>
         <td align=right><button class="btn btn-primary" ng-click="createNewRace()">New Race</button></td>
         <td><span id="supportMsg"></span></td>
-        <td align="right">  <button class="btn btn-info" id="speak" onClick="speak('Ok');">Speak</button>  </td>
+        <td align="right"> 
+          <div class="checkbox">
+            <label><input type="checkbox" onClick="speak('Ok');" ng-click="speakToggle()" ng-model="speakCheckBox" value="">Speak</label>
+          </div>
+         
         <td >
           <div class="dropdown">
           <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Settings
@@ -107,7 +111,7 @@ function speak(text) {
         <th colspan="20">Lap Times (most recent lap is first)</th>
       </tr>
       <tr ng-repeat="racer in data">
-        <td>{{racer.Name}}&nbsp;&nbsp;(<i>{{users[racer.Id].details}})</i></td>
+        <td>{{users[racer.Id].name}}&nbsp;&nbsp;(<i>{{users[racer.Id].details}})</i></td>
         <td>{{format_time(racer.best)}}</td>
         <td>{{racer.laps}}</td>
         <td ng-repeat="d in racer.val | reverse" ng-class="{success : d.lapTime == racer.best}"><span>{{format_time(d.lapTime)}}</span></td>

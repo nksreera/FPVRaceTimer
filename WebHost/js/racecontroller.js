@@ -24,6 +24,7 @@ webApp.controller('mainCtrl', function ($scope,$http,$location) {
 
 $scope.data = [];
 $scope.Data2 = [];
+$scope.users = [];
 
 
 $scope.home = function()
@@ -47,9 +48,15 @@ $scope.loadRaceData();
 
 $scope.getusers = function()
 {
-  $http.get("/getusers").success(function(data, status) {
-            $scope.users = data;
-            // console.log(data);
+  $http.get("/racepilots?id="+raceId).success(function(data, status) {
+            // $scope.users = data;
+            for(var x = 0;x<data.length;x++)
+            {
+              
+              $scope.users[data[x].pilotId] = data[x];
+            }
+            //console.log($scope.users);
+            //console.log(data);
         })
 };
   
